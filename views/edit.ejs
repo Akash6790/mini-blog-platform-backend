@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-zinc-900 text-white min-h-screen flex justify-center items-center">
+    
+    <div class="w-[90%] max-w-3xl bg-zinc-950 p-10 rounded-2xl shadow-lg space-y-8">
+        <!-- 🔹 Header Section -->
+        <div class="flex justify-between items-center">
+            <h1 class="text-3xl font-semibold">Hello, <%= user.name %> 🥰 </h1>
+            <a href="/logout"
+                class="bg-red-500 hover:bg-red-600 transition px-4 py-2 rounded-md text-sm font-medium">Logout </a>
+        </div>
+        <!-- 🔹 Post Creation Section -->
+        <div class="space-y-4">
+            <h2 class="text-2xl font-semibold text-center">Edit your Post</h2>
+            <form action="/update/<%= post._id%>" method="post" class="flex flex-col items-center space-y-4">
+                <textarea
+                    class="resize-none bg-transparent rounded-md border-2 border-zinc-800 w-full p-4 focus:border-blue-500 outline-none transition"
+                    name="content" placeholder="What's on your mind?" rows="5"><%= post.content%></textarea>
+                <input type="submit" value="Update Edited"
+                    class="bg-yellow-500 hover:bg-yellow-600 transition px-6 py-2 rounded-md font-medium cursor-pointer">
+            </form>
+        </div>
+
+    </div>
+</body>
+
+</html>
